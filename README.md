@@ -1,5 +1,5 @@
 # MovieFinder
-
+[Live demo](https://movie-finder-nuxt.herokuapp.com/)
 ## Build Setup
 
 ```bash
