@@ -12,10 +12,13 @@
     "test": "jest"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/fontawesome": "^1.1.2",
     "core-js": "^3.6.5",
-    "nuxt": "^2.14.6"
+    "nuxt": "^2.14.6",
+    "vue-horizontal-list": "^1.0.12"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.6",

@@ -1,6 +1,7 @@
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
+    srcDir: 'src/',
     title: 'MovieFinder',
     meta: [
       { charset: 'utf-8' },
@@ -13,8 +14,7 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [
-  ],
+  css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
@@ -28,7 +28,8 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/fontawesome'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -39,7 +40,14 @@ export default {
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseURL: 'http://localhost:4000'
+    baseURL: 'https://omdbapi.com/'
+  },
+
+  fontawesome: {
+    component: 'fa',
+    icons: {
+      solid: true
+    }
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

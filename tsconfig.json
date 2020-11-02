@@ -13,13 +13,14 @@
     "sourceMap": true,
     "strict": true,
     "noEmit": true,
+    "noImplicitAny":  false,
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "./*"
-      ],
       "@/*": [
+        "src/*"
+      ],
+      "~/*": [
         "./*"
       ]
     },

@@ -1,36 +1,55 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        MovieFinder
+    <div class="w-full text-center">
+      <h1 class="subtitle">
+        Movie Finder
       </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
+      <Loader v-if="isLoading" />
+      <form
+        class="max-w-md mx-auto px-6 py-3 border border-gray-200 border-opacity-75 rounded-lg shadow-lg w-full space-x-6 flex items-center bg-white"
+        @submit.prevent="searchMovie"
+      >
+        <button class="focus:outline-none">
+          <fa class="text-gray-500" icon="search" />
+        </button>
+        <input
+          v-model="query"
+          type="search"
+          class="w-full bg-transparent text-base focus:outline-none"
+          placeholder="Type some title..."
         >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
+        <button
+          type="submit"
+          class="bg-indigo-500 text-white py-2 text-sm px-3 rounded focus:outline-none"
         >
-          GitHub
-        </a>
-      </div>
+          Search
+        </button>
+      </form>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { mapState } from 'vuex'
 
-export default Vue.extend({})
+export default Vue.extend({
+  data: () => ({
+    query: ''
+  }),
+  computed: {
+    ...mapState({
+      isLoading: (state: any) => state.movies.isLoading,
+      results: (state: any) => state.movies.items
+    })
+  },
+  methods: {
+    searchMovie () {
+      this.$store.dispatch('movies/search', this.query)
+      this.$router.push({ path: 'search', query: { t: this.query } })
+    }
+  }
+})
 </script>
 
 <style>
@@ -39,26 +58,9 @@ export default Vue.extend({})
 @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
 .title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
@@ -72,9 +74,5 @@ export default Vue.extend({})
   color: #526488;
   word-spacing: 5px;
   padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
 }
 </style>
