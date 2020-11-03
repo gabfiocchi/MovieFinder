@@ -34,13 +34,13 @@ import Vue from 'vue'
 import { mapState } from 'vuex'
 
 export default Vue.extend({
+  name: 'HomePage',
   data: () => ({
     query: ''
   }),
   computed: {
     ...mapState({
-      isLoading: (state: any) => state.movies.isLoading,
-      results: (state: any) => state.movies.items
+      isLoading: (state: any) => state.movies.isLoading
     })
   },
   methods: {

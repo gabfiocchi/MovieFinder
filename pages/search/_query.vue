@@ -3,7 +3,7 @@
     <Loader v-if="isLoading" />
     <form
       class="max-w-md mx-auto px-6 py-3 border border-gray-200 border-opacity-75 rounded-lg shadow-lg w-full space-x-6 flex items-center bg-white"
-      @click.prevent="searchMovie"
+      @click.prevent="resetSearch"
     >
       <button class="focus:outline-none">
         <fa class="text-gray-500" icon="search" />
@@ -45,6 +45,7 @@ import { mapState } from 'vuex'
 import VueHorizontalList from 'vue-horizontal-list'
 
 export default Vue.extend({
+  name: 'SearchPage',
   components: {
     VueHorizontalList
   },
@@ -72,7 +73,7 @@ export default Vue.extend({
     })
   },
   methods: {
-    searchMovie () {
+    resetSearch () {
       this.$router.push('/')
     }
   }

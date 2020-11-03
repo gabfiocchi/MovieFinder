@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Page should render the component 1`] = `
+<div class="container">
+  <div class="w-full text-center">
+    <h1 class="subtitle">
+      Movie Finder
+    </h1>
+    <!---->
+    <form class="max-w-md mx-auto px-6 py-3 border border-gray-200 border-opacity-75 rounded-lg shadow-lg w-full space-x-6 flex items-center bg-white"><button class="focus:outline-none">
+        <fa-stub icon="search" class="text-gray-500"></fa-stub>
+      </button> <input type="search" placeholder="Type some title..." class="w-full bg-transparent text-base focus:outline-none"> <button type="submit" class="bg-indigo-500 text-white py-2 text-sm px-3 rounded focus:outline-none">
+        Search
+      </button></form>
+  </div>
+</div>
+`;

@@ -4,12 +4,9 @@ export default {
     try {
       const resp = await this.$axios.get('?s=' + params + '&type=movie&apikey=1a210ad1')
       if (resp.data.Response === 'True') {
-        commit('SET_ITEMS', resp.data)
+        commit('SET_ITEMS', resp.data.Search)
       } else {
-        commit('SET_ITEMS', {
-          Search: [],
-          totalResults: 0
-        })
+        commit('SET_ITEMS', [])
       }
     } catch (error) {
       console.log('error', error)

@@ -1,1 +1,0 @@
-export { MoviesState, Store } from './store';
